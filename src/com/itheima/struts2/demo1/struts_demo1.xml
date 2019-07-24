@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!-- 配置常量    默认是action  如果这里定义是abc的话访问的时候后缀名必须是abc-->
+<!--   <constant name="struts.action.extension" value="action"></constant> -->
+
+  <!-- Struts2为了管理Action的配置，通过包进行管理 -->
+  <!-- 配置Struts的包  -->
+  <!-- name:随意取名 -->
+  <package name="demo" extends="struts-default" namespace="/">
+     <!-- name:demo1.jsp调整的action  class：对于的是访问的类的全路径    默认method为execute  可以改-->
+     <action name="hello" class="com.itheima.struts2.demo1.HelloAction" method="execute">
+       <!-- 配置页面的跳转====== -->
+       <result name="success">/demo1/success.jsp</result>
+     </action>
+  </package>
+</struts>

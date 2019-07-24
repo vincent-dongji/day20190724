@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!-- 配置常量    默认是action  如果这里定义是abc的话访问的时候后缀名必须是abc-->
+  <!-- <constant name="struts.action.extension" value="action"></constant> -->
+<!-- 开启动态方法访问 -->
+  <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+
+  <!-- Struts2为了管理Action的配置，通过包进行管理 -->
+  <!-- 配置Struts的包  -->
+  <!-- name:随意取名  -->
+
+  <package name="demo3" extends="struts-default" namespace="/">
+    <!-- method方式 -->
+     <action name="userFind" class="com.itheima.struts2.demo3.UserAction" method="find">
+     </action>
+     <action name="userUpdate" class="com.itheima.struts2.demo3.UserAction" method="update">
+     </action>
+     <action name="userDelete" class="com.itheima.struts2.demo3.UserAction" method="delete">
+     </action>
+     <action name="userSave" class="com.itheima.struts2.demo3.UserAction" method="save">
+     </action>
+     
+       <!-- 通配符方式 -->
+      <action name="product_*" class="com.itheima.struts2.demo3.ProductAction" method="{1}">
+      </action> 
+      <!-- 另一种抽象的写法  -->
+      <!-- *_*表示对应访问的地址  必须是类名_方法名    XXX表示这个包名    .{1}表示第一个*表示的类名   {2}表示第二个*表示的方法名 -->
+      <!-- <action name="*_*" class="XXX.{1}" method="{2}">
+      </action> -->
+      
+      <!-- 动态方法访问的方式 -->
+      <action name="Customer" class="com.itheima.struts2.demo3.CustomerAction">
+      </action> 
+  </package>
+</struts>
